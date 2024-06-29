@@ -1,0 +1,25 @@
+# Ignore Protobuf compiler generated files
+*.pb.go
+*.pb.cc
+*.pb.h
+*.pb.java
+*.pb.py
+*.pb2.py
+
+# Ignore build files
+/build/
+*.o
+*.so
+*.dylib
+*.a
+*.exe
+
+# Ignore IDE and editor-specific files
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
