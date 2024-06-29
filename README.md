@@ -17,4 +17,4 @@ Communication between the Tarmac server and functions/SDKs is via [waPC](https:/
 
 ## Contributing
 
-Contributions are  welcome please open an issue or submit a pull request for any changes or improvements.
+Contributions are welcome, please open an issue or submit a pull request for any changes or improvements.
