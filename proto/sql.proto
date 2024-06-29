@@ -7,13 +7,16 @@ option go_package = "github.com/tarmac-project/tarmac/proto";
 
 // SQLQuery is a structure used to create SQL queries to a SQL Database.
 message SQLQuery {
-  // Query is the SQL Query to be executed. This field should be a byte slice to avoid conflicts with JSON encoding.
+  // Query is the SQL Query to be executed. This field should be a byte slice 
+  // to avoid conflicts with JSON encoding.
   bytes query = 1;
 }
 
-// SQLQueryResponse is a structure supplied as a response message to a SQL Database Query.
+// SQLQueryResponse is a structure supplied as a response message to a SQL 
+// Database Query.
 message SQLQueryResponse {
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   tarmac.Status status = 1;
   // Data is a byte slice representing a JSON structure of the returned rows.
   // Each row will contain a column name based map to access data.

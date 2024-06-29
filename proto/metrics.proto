@@ -4,13 +4,15 @@ package tarmac.metrics;
 
 option go_package = "github.com/tarmac-project/tarmac/proto";
 
-// MetricsCounter is a structure used to create Counter metrics callback requests to the Tarmac Metrics interface.
+// MetricsCounter is a structure used to create Counter metrics callback 
+// requests to the Tarmac Metrics interface.
 message MetricsCounter {
   // Name is the name of the metric as exposed via the metrics HTTP end-point.
   string name = 1;
 }
 
-// MetricsGauge is a structure used to create Gauge metrics callback requests to the Tarmac Metrics interface.
+// MetricsGauge is a structure used to create Gauge metrics callback requests 
+// to the Tarmac Metrics interface.
 message MetricsGauge {
   // Name is the name of the metric as exposed via the metrics HTTP end-point.
   string name = 1;
@@ -19,7 +21,8 @@ message MetricsGauge {
   string action = 2; // inc or dec
 }
 
-// MetricsHistogram is a structure used to create Histogram metrics callback requests to the Tarmac Metrics interface.
+// MetricsHistogram is a structure used to create Histogram metrics callback 
+// requests to the Tarmac Metrics interface.
 message MetricsHistogram {
   // Name is the name of the metric as exposed via the metrics HTTP end-point.
   string name = 1;

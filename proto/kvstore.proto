@@ -5,25 +5,35 @@ package tarmac.kvstore;
 import "tarmac.proto";
 option go_package = "github.com/tarmac-project/tarmac/proto";
 
-// KVStoreGet is a structure used to create Get request callbacks to the Tarmac KVStore interface.
-// This structure is a general request type used for all KVStore types provided by Tarmac.
+// KVStoreGet is a structure used to create Get request callbacks to the Tarmac 
+// KVStore interface.
+//
+// This structure is a general request type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreGet {
   // Key is the index key to use when accessing the key:value store.
   string key = 1;
 }
 
-// KVStoreGetResponse is a structure supplied as response messages to KVStore Get requests.
-// This response is a general response type used for all KVStore types provided by Tarmac.
+// KVStoreGetResponse is a structure supplied as response messages to KVStore 
+// Get requests.
+//
+// This response is a general response type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreGetResponse {
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   tarmac.Status status = 1;
   // Data is the response data provided by the key:value store.
   // This data is a byte slice to provide a simple field for arbitrary data.
   bytes data = 2;
 }
 
-// KVStoreSet is a structure used to create a Set request callback to the Tarmac KVStore interface.
-// This structure is a general request type used for all KVStore types provided by Tarmac.
+// KVStoreSet is a structure used to create a Set request callback to the 
+// Tarmac KVStore interface.
+//
+// This structure is a general request type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreSet {
   // Key is the index key used to store the data.
   string key = 1;
@@ -32,31 +42,46 @@ message KVStoreSet {
   bytes data = 2;
 }
 
-// KVStoreSetResponse is a structure supplied as a response message to the KVStore Set callback function.
-// This response is a general response type used for all KVStore types provided by Tarmac.
+// KVStoreSetResponse is a structure supplied as a response message to the 
+// KVStore Set callback function.
+//
+// This response is a general response type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreSetResponse {
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   tarmac.Status status = 1;
 }
 
-// KVStoreDelete is a structure used to create Delete callback requests to the Tarmac KVStore interface.
-// This structure is a general request type used for all KVStore types provided by Tarmac.
+// KVStoreDelete is a structure used to create Delete callback requests to the 
+// Tarmac KVStore interface.
+//
+// This structure is a general request type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreDelete {
   // Key is the index key used to store the data.
   string key = 1;
 }
 
-// KVStoreDeleteResponse is a structure supplied as a response message to the KVStore Delete callback function.
-// This response is a general response type used for all KVStore types provided by Tarmac.
+// KVStoreDeleteResponse is a structure supplied as a response message to the 
+// KVStore Delete callback function.
+//
+// This response is a general response type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreDeleteResponse {
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   tarmac.Status status = 1;
 }
 
-// KVStoreKeysResponse is a structure supplied as a response message to the KVStore Keys callback function.
-// This response is a general response type used for all KVStore types provided by Tarmac.
+// KVStoreKeysResponse is a structure supplied as a response message to the 
+// KVStore Keys callback function.
+
+// This response is a general response type used for all KVStore types provided 
+// by Tarmac.
 message KVStoreKeysResponse {
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   tarmac.Status status = 1;
   // Keys is a list of keys available within the KV Store.
   repeated string keys = 2;

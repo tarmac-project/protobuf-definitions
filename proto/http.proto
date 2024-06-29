@@ -7,27 +7,33 @@ option go_package = "github.com/tarmac-project/tarmac/proto";
 
 // HTTPClient is a structure used to create HTTP calls to remote systems.
 message HTTPClient {
-  // Method is the HTTP method type for the HTTP request; valid options are GET, POST, PUT, PATCH, HEAD, & DELETE.
+  // Method is the HTTP method type for the HTTP request; valid options are 
+  // GET, POST, PUT, PATCH, HEAD, & DELETE.
   string method = 1;
   // Headers are the HTTP headers to include in the HTTP request.
   map<string, string> headers = 2;
   // URL is the HTTP URL to call.
   string url = 3;
-  // Body is the user-supplied HTTP body data. This field should contain the request payload data.
+  // Body is the user-supplied HTTP body data. This field should contain the 
+  // request payload data.
   bytes body = 4;
-  // Insecure will disable TLS host verification; this is common with self-signed certificates; however, use caution.
+  // Insecure will disable TLS host verification; this is common with 
+  // self-signed certificates; however, use caution.
   bool insecure = 5;
 }
 
-// HTTPClientResponse is a structure supplied as a response message to a remote HTTP call callback function.
+// HTTPClientResponse is a structure supplied as a response message to a remote 
+// HTTP call callback function.
 message HTTPClientResponse {
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   tarmac.Status status = 1;
   // Code is the HTTP Status Code returned from the target server.
   int32 code = 2;
   // Headers are the HTTP headers returned from the HTTP request.
   map<string, string> headers = 3;
-  // Body is the server-supplied HTTP payload data. The server-supplied payload will be a byte slice.
+  // Body is the server-supplied HTTP payload data. The server-supplied payload 
+  // will be a byte slice.
   bytes body = 4;
 }
 

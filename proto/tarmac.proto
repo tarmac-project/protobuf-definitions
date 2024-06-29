@@ -4,7 +4,9 @@ package tarmac;
 
 option go_package = "github.com/tarmac-project/tarmac/proto";
 
-// Status is used to return a status code and message to clients when performing host callbacks to Tarmac.
+// Status is used to return a status code and message to clients when 
+// performing host callbacks to Tarmac.
+//
 // The status code will indicate failure or success.
 //
 // Status codes are as follows:
@@ -14,6 +16,7 @@ option go_package = "github.com/tarmac-project/tarmac/proto";
 message Status {
   // Code is the status code for callback execution.
   int32 code = 1;
-  // Status is the human readable error message or success message for function execution.
+  // Status is the human readable error message or success message for function 
+  // execution.
   string status = 2;
 }
