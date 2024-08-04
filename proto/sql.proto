@@ -18,8 +18,27 @@ message SQLQueryResponse {
   // Status is the human readable error message or success message for function 
   // execution.
   tarmac.Status status = 1;
-  // Data is a byte slice representing a JSON structure of the returned rows.
-  // Each row will contain a column name based map to access data.
-  bytes data = 2;
+
+  // LastInsertID is the ID of the last inserted row. This field is only
+  // populated if the query was an insert query and the database supports
+  // returning the last inserted ID.
+  int64 last_insert_id = 2;
+
+  // RowsAffected is the number of rows affected by the query. This field is
+  // only populated if the query was an insert, update, or delete query.
+  int64 rows_affected = 3;
+
+  // Columns is a list of column names returned by the query. This field is
+  // only populated if the query was a select query.
+  repeated string columns = 4;
+
+  // Rows is a list of rows returned by the query. This field is only populated
+  // if the query was a select query.
+  repeated Row rows = 5;
 }
 
+// Row is a structure used to represent a row in a SQL query response.
+// The data field is a map of column names to column values.
+message Row {
+  map<string, bytes> data = 1;
+}

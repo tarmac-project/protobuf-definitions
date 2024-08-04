@@ -33,6 +33,10 @@ jobs:
           go-version: '1.21'
       - name: Install protoc-gen-go
         run: go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+      - name: Install protoc-gen-go-vtproto
+        run: go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 
       - name: generate language files
         run: make all clean
+        env:
+          GOPATH: /root/go
