@@ -41,4 +41,4 @@ jobs:
       - name: generate language files
         run: make build clean
         env:
-          GOPATH: /root/go
+          GOPATH: /home/runner/go
