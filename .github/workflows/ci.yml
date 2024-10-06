@@ -6,8 +6,6 @@ on:
       - main
   pull_request:
 
-shell: bash
-
 jobs:
   lint:
     runs-on: ubuntu-latest
