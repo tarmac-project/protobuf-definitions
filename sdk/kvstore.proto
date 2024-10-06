@@ -3,7 +3,7 @@ syntax = "proto3";
 package tarmac.kvstore;
 
 import "tarmac.proto";
-option go_package = "github.com/tarmac-project/tarmac/proto";
+option go_package = "github.com/tarmac-project/protobuf-go/sdk/kvstore";
 
 // KVStoreGet is a structure used to create Get request callbacks to the Tarmac 
 // KVStore interface.
@@ -24,6 +24,7 @@ message KVStoreGetResponse {
   // Status is the human readable error message or success message for function 
   // execution.
   tarmac.Status status = 1;
+
   // Data is the response data provided by the key:value store.
   // This data is a byte slice to provide a simple field for arbitrary data.
   bytes data = 2;
@@ -37,6 +38,7 @@ message KVStoreGetResponse {
 message KVStoreSet {
   // Key is the index key used to store the data.
   string key = 1;
+
   // Data is the user-supplied key:value data.
   // Tarmac expects this field to be a byte slice.
   bytes data = 2;
@@ -74,15 +76,29 @@ message KVStoreDeleteResponse {
   tarmac.Status status = 1;
 }
 
+// KVStoreKeys is a structure used to create a Keys callback request to the
+// Tarmac KVStore interface.
+//
+// This structure is a general request type used for all KVStore types provided
+// by Tarmac.
+message KVStoreKeys {
+  // ReturnProto is a boolean value that determines if the response should be
+  // returned as a JSON string or as a KVStoreKeysResponse message.
+  //
+  // This must be set to true to return a KVStoreKeysResponse message.
+  bool return_proto = 1;
+}
+
 // KVStoreKeysResponse is a structure supplied as a response message to the 
 // KVStore Keys callback function.
-
+//
 // This response is a general response type used for all KVStore types provided 
 // by Tarmac.
 message KVStoreKeysResponse {
   // Status is the human readable error message or success message for function 
   // execution.
   tarmac.Status status = 1;
+
   // Keys is a list of keys available within the KV Store.
   repeated string keys = 2;
 }

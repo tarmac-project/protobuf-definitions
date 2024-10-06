@@ -37,6 +37,6 @@ jobs:
         run: go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 
       - name: generate language files
-        run: make all clean
+        run: make build clean
         env:
           GOPATH: /root/go

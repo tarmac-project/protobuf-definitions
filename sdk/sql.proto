@@ -3,7 +3,7 @@ syntax = "proto3";
 package tarmac.sql;
 
 import "tarmac.proto";
-option go_package = "github.com/tarmac-project/tarmac/proto";
+option go_package = "github.com/tarmac-project/protobuf-go/sdk/sql";
 
 // SQLExec is a structure used to execute a SQL query on a SQL Database.
 // This message type should be leveraged for queries that do not return rows.

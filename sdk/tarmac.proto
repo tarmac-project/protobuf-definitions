@@ -1,8 +1,7 @@
 syntax = "proto3";
 
 package tarmac;
-
-option go_package = "github.com/tarmac-project/tarmac/proto";
+option go_package = "github.com/tarmac-project/protobuf-go/sdk";
 
 // Status is used to return a status code and message to clients when 
 // performing host callbacks to Tarmac.
@@ -16,6 +15,7 @@ option go_package = "github.com/tarmac-project/tarmac/proto";
 message Status {
   // Code is the status code for callback execution.
   int32 code = 1;
+
   // Status is the human readable error message or success message for function 
   // execution.
   string status = 2;
