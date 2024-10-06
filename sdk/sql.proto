@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package tarmac.sql;
+
+import "tarmac.proto";
+option go_package = "github.com/tarmac-project/protobuf-go/sdk/sql";
+
+// SQLExec is a structure used to execute a SQL query on a SQL Database.
+// This message type should be leveraged for queries that do not return rows.
+message SQLExec {
+  // Query is the SQL Query to be executed. This field should be a byte slice 
+  // to avoid conflicts with JSON encoding.
+  bytes query = 1;
+}
+
+// SQLExecResponse is a structure supplied as a response message to a SQLExec
+// request.
+message SQLExecResponse {
+  // Status is the human readable error message or success message for function 
+  // execution.
+  tarmac.Status status = 1;
+
+  // LastInsertID is the ID of the last inserted row. This field is only
+  // populated if the query was an insert query and the database supports
+  // returning the last inserted ID.
+  int64 last_insert_id = 2;
+
+  // RowsAffected is the number of rows affected by the query. This field is
+  // only populated if the query was an insert, update, or delete query.
+  int64 rows_affected = 3;
+}
+
+// SQLQuery is a structure used to create SQL queries to a SQL Database.
+message SQLQuery {
+  // Query is the SQL Query to be executed. This field should be a byte slice 
+  // to avoid conflicts with JSON encoding.
+  bytes query = 1;
+}
+
+// SQLQueryResponse is a structure supplied as a response message to a SQL 
+// Database Query.
+message SQLQueryResponse {
+  // Status is the human readable error message or success message for function 
+  // execution.
+  tarmac.Status status = 1;
+
+  // Columns is a list of column names returned by the query. This field is
+  // only populated if the query was a select query.
+  repeated string columns = 4;
+
+  // Data is a JSON encoded byte slice of the data returned by the query.
+  bytes data = 5;
+}
+
