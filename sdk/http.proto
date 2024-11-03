@@ -51,5 +51,5 @@ message Header {
   // Value is the HTTP header value to include in requests and responses.
   // This field is a repeated field to allow for multiple values
   // which is allowed in HTTP headers.
-  repeated string value = 1;
+  repeated string values = 1;
 }
