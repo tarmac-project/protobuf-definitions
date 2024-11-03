@@ -12,7 +12,7 @@ message HTTPClient {
   string method = 1;
 
   // Headers are the HTTP headers to include in the HTTP request.
-  map<string, string> headers = 2;
+  map<string, Header> headers = 2;
 
   // URL is the HTTP URL to call.
   string url = 3;
@@ -37,10 +37,19 @@ message HTTPClientResponse {
   int32 code = 2;
 
   // Headers are the HTTP headers returned from the HTTP request.
-  map<string, string> headers = 3;
+  map<string, Header> headers = 3;
 
   // Body is the server-supplied HTTP payload data. The server-supplied payload 
   // will be a byte slice.
   bytes body = 4;
 }
 
+// Header is a structure used to define HTTP headers for HTTP requests.
+// As HTTP headers can have multiple values, this structure is used to define
+// the header values.
+message Header {
+  // Value is the HTTP header value to include in requests and responses.
+  // This field is a repeated field to allow for multiple values
+  // which is allowed in HTTP headers.
+  repeated string value = 2;
+}
