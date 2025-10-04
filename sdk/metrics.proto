@@ -1,8 +1,7 @@
 syntax = "proto3";
 
 package tarmac.metrics;
-
-option go_package = "github.com/tarmac-project/tarmac/proto";
+option go_package = "github.com/tarmac-project/protobuf-go/sdk/metrics";
 
 // MetricsCounter is a structure used to create Counter metrics callback 
 // requests to the Tarmac Metrics interface.
@@ -16,6 +15,7 @@ message MetricsCounter {
 message MetricsGauge {
   // Name is the name of the metric as exposed via the metrics HTTP end-point.
   string name = 1;
+
   // Action is the action to be performed for the Gauge metric.
   // Valid options are inc (Increment) and dec (Decrement).
   string action = 2; // inc or dec
@@ -26,6 +26,7 @@ message MetricsGauge {
 message MetricsHistogram {
   // Name is the name of the metric as exposed via the metrics HTTP end-point.
   string name = 1;
+
   // Value is the value to Observe for the Histogram metric.
   double value = 2;
 }
