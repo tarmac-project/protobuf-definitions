@@ -10,7 +10,7 @@ option go_package = "github.com/tarmac-project/protobuf-go/sdk";
 //
 // Possible status codes are:
 // 200 - Success
-// 206 - Success with partial metadata (rows affected / last insert ID unavailable)
+// 206 - Success with partial metadata (rows affected)
 // 400 - Malformed or invalid request
 // 404 - Requested key not found in KV store
 // 500 - Internal server error
