@@ -33,10 +33,8 @@ jobs:
         uses: actions/setup-go@v3
         with:
           go-version: '1.21'
-      - name: Install protoc-gen-go
-        run: go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-      - name: Install protoc-gen-go-vtproto
-        run: go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
+      - name: Install protoc-gen-go-lite
+        run: go install github.com/aperturerobotics/protobuf-go-lite/cmd/protoc-gen-go-lite@latest
 
       - name: generate language files
         run: make build clean
