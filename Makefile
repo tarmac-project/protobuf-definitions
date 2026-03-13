@@ -13,12 +13,11 @@ build: go
 
 go: $(PROTO_FILES)
 	@echo "Generating Go code..."
-	mkdir -p $(GO_OUT)
+	mkdir -p $(GO_OUT)/$(GO_MODULE)
 	protoc $(PROTOC_INCLUDES) \
-		--go_out=module=$(GO_MODULE):$(GO_OUT) \
-		--go-vtproto_out=module=$(GO_MODULE):$(GO_OUT) \
-		--plugin protoc-gen-go="${GOPATH}/bin/protoc-gen-go" \
-		--plugin protoc-gen-go-vtproto="${GOPATH}/bin/protoc-gen-go-vtproto" \
+		--plugin protoc-gen-go-lite="$(GOPATH)/bin/protoc-gen-go-lite" \
+		--go-lite_out=paths=import:$(GO_OUT) \
+		--go-lite_opt=features=marshal+unmarshal+size+equal+clone \
 		$(PROTO_FILES)
 
 clean:

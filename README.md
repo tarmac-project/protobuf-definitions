@@ -5,6 +5,15 @@ This repository contains the protobuf definitions for the Tarmac project.
 The protobuf definitions are used by Tarmac SDKs or functions directly to perform host calls to the Tarmac server.
 Communication between the Tarmac server and functions/SDKs is via [waPC](https://wapc.io/) WebAssembly Procedure Calls.
 
+## Generation
+
+The checked-in `.proto` files in this repository are the source of truth for
+the generated Go packages published from
+[`protobuf-go`](https://github.com/tarmac-project/protobuf-go).
+
+Use `make build` to generate Go code with `protoc-gen-go-lite`. The generated
+output is written under `build/go/github.com/tarmac-project/protobuf-go`.
+
 ## Structure
 
 | Proto File | Description |
